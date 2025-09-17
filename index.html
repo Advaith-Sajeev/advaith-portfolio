@@ -1,331 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Advaith – Portfolio</title>
-  <style>
-    :root {
-      --bg-color: #FFFDF2;
-      --fg-color: #000000;
-      --accent-color: #EBAA64; /* muted orange for subtle highlights */
-      --heading-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      --body-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advaith – Portfolio</title>
+    <style>
+      :root {
+        --bg-color: #fffdf2;
+        --fg-color: #000000;
+        --accent-color: #ebaa64; /* muted orange for subtle highlights */
+        --heading-font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        --body-font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg-color);
-      color: var(--fg-color);
-      font-family: var(--body-font);
-      line-height: 1.6;
-    }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg-color);
+        color: var(--fg-color);
+        font-family: var(--body-font);
+        line-height: 1.6;
+      }
 
-    /* Basic layout */
-    .container {
-      display: flex;
-      min-height: 100vh;
-    }
-    .sidebar {
-  width: 280px;
-  background: var(--fg-color);
-  color: var(--bg-color);
-  display: flex;
-  flex-direction: column;
-  padding: 2rem 1.5rem;
-  /* Ensure the sidebar remains visible when scrolling by making it sticky */
-  position: sticky;
-  top: 0;
-  height: 100vh;
-    }
-    .sidebar .profile {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 2rem;
-    }
-    .profile img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid var(--bg-color);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    .profile h1 {
-      margin-top: 1rem;
-      font-size: 1.4rem;
-      font-weight: 600;
-    }
-    nav {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-    nav a {
-      text-decoration: none;
-      color: var(--bg-color);
-      padding: 0.5rem 0.75rem;
-      border-radius: 4px;
-      transition: background 0.2s;
-    }
-    nav a:hover, nav a:focus {
-      background: var(--accent-color);
-      color: var(--fg-color);
-    }
-    .sidebar .socials {
-      display: flex;
-      gap: 0.5rem;
-      margin-top: auto;
-    }
-    .sidebar .socials a {
-      color: var(--bg-color);
-      font-size: 1.2rem;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .sidebar .socials a:hover {
-      color: var(--accent-color);
-    }
-    /* Main content area */
-    .content {
-      flex: 1;
-      padding: 2rem;
-      overflow-y: auto;
-    }
-    section {
-      margin-bottom: 3rem;
-    }
-    h2 {
-      font-family: var(--heading-font);
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      border-left: 6px solid var(--accent-color);
-      padding-left: 0.5rem;
-    }
-    /* Cards */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1rem;
-    }
-    .card {
-      background: #FFFFFF;
-      border: 1px solid #E0E0E0;
-      border-radius: 8px;
-      padding: 1rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .card h3 {
-      margin-top: 0;
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-    .card p {
-      margin-bottom: 0.25rem;
-    }
-    .card a {
-      color: var(--accent-color);
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .resume-link {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
-      background: var(--accent-color);
-      color: var(--fg-color);
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .resume-link:hover {
-      background: var(--fg-color);
-      color: var(--bg-color);
-    }
-    @media (max-width: 768px) {
+      /* Basic layout */
       .container {
-        flex-direction: column;
+        display: flex;
+        min-height: 100vh;
       }
       .sidebar {
-        width: 100%;
-        flex-direction: row;
+        width: 280px;
+        background: var(--fg-color);
+        color: var(--bg-color);
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 1.5rem;
+        /* Ensure the sidebar remains visible when scrolling by making it sticky */
+        position: sticky;
+        top: 0;
+        height: 100vh;
+      }
+      .sidebar .profile {
+        display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+      .profile img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid var(--bg-color);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      .profile h1 {
+        margin-top: 1rem;
+        font-size: 1.4rem;
+        font-weight: 600;
       }
       nav {
-        flex-direction: row;
         flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      nav a {
+        text-decoration: none;
+        color: var(--bg-color);
+        padding: 0.5rem 0.75rem;
+        border-radius: 4px;
+        transition: background 0.2s;
+      }
+      nav a:hover,
+      nav a:focus {
+        background: var(--accent-color);
+        color: var(--fg-color);
+      }
+      .sidebar .socials {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: auto;
+      }
+      .sidebar .socials a {
+        color: var(--bg-color);
+        font-size: 1.2rem;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .sidebar .socials a:hover {
+        color: var(--accent-color);
+      }
+      /* Main content area */
+      .content {
+        flex: 1;
+        padding: 2rem;
+        overflow-y: auto;
+      }
+      section {
+        margin-bottom: 3rem;
+      }
+      h2 {
+        font-family: var(--heading-font);
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        border-left: 6px solid var(--accent-color);
+        padding-left: 0.5rem;
+      }
+      /* Cards */
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: 1rem;
       }
-      .sidebar .profile h1 {
-        font-size: 1.2rem;
-      }
-      .content {
+      .card {
+        background: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
         padding: 1rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="profile">
-        <img src="DSC_0778.jpg" alt="Advaith">
-        <h1>Advaith</h1>
-      </div>
-      <nav>
-        <a href="#home">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#research">Research</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#skills">Skills &amp; Certifications</a>
-        <a href="#contact">Contact</a>
-        <a href="#resume">Resume</a>
-      </nav>
-      <div class="socials">
-        <!-- Updated social links to reflect real accounts. Remove placeholder addresses. -->
-        <a href="mailto:advaithsajeev1244@gmail.com" title="Email">✉️</a>
-        <a href="https://github.com/Advaith-Sajeev" title="GitHub">🐙</a>
-        <a href="https://www.linkedin.com/in/advaith-sajeev/" title="LinkedIn">🔗</a>
-      </div>
-    </aside>
-    <!-- Main content -->
-    <main class="content">
-      <!-- Home / Hero section -->
-      <section id="home">
-        <h2>Hello</h2>
-        <p>I'm <strong>Advaith</strong>, an <strong>AI Researcher &amp; Machine Learning Engineer</strong>. I enjoy creating efficient vision and generative AI systems that bridge cutting-edge research and real-world impact. Currently completing my B.Tech in Computer Science and Engineering at Amrita Vishwa Vidyapeetham with a focus on computer vision, diffusion models and edge deployment.</p>
-        <p>I love transforming research ideas into scalable and deployable products. Explore my work below!</p>
-      </section>
-      <!-- Projects section -->
-      <section id="projects">
-        <h2>Projects</h2>
-        <div class="cards">
-          <div class="card">
-            <h3>Deepfake Detection Ensemble</h3>
-            <p><strong>Date:</strong> Jan 2024 – Present</p>
-            <p>Developed an ensemble of detectors with a custom dataset to detect AI-generated deepfakes. Combined multiple architectures via weighted fusion to improve accuracy.</p>
-            <p><strong>Stack:</strong> PyTorch, TensorFlow, OpenCV</p>
-            <!-- Link to the Deepfake Detection code repository -->
-            <a href="https://github.com/Advaith-Sajeev/DeepfakeDetection" target="_blank">View Code</a>
-          </div>
-          <div class="card">
-            <h3>DDPM Image Generation Coursework</h3>
-            <p><strong>Date:</strong> Aug 2023 – Dec 2023</p>
-            <p>Explored the fundamentals of diffusion probabilistic models and implemented a denoising diffusion pipeline as part of academic coursework.</p>
-            <p><strong>Stack:</strong> PyTorch, Python</p>
-            <!-- Coursework does not have a public repository link -->
-          </div>
-          <div class="card">
-            <h3>Adobe India Hackathon – Team Starks</h3>
-            <p><strong>Date:</strong> Apr 2024</p>
-            <p>Built a compact generative AI model using Qwen2.5–0.5B INT8 for summarisation with YOLOv8n for image detection and K-means clustering for embedding filtering.</p>
-            <p><strong>Stack:</strong> Qwen, YOLOv8, Python</p>
-            <!-- Link to the Adobe India Hackathon project code repository -->
-            <a href="https://github.com/Advaith-Sajeev/TeamStarks-Adobe-India-Hackathon" target="_blank">View Code</a>
-          </div>
+      .card h3 {
+        margin-top: 0;
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+      .card p {
+        margin-bottom: 0.25rem;
+      }
+      .card a {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .resume-link {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;
+        background: var(--accent-color);
+        color: var(--fg-color);
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .resume-link:hover {
+        background: var(--fg-color);
+        color: var(--bg-color);
+      }
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+        }
+        .sidebar {
+          width: 100%;
+          flex-direction: row;
+          align-items: center;
+          gap: 1rem;
+        }
+        nav {
+          flex-direction: row;
+          flex: 1;
+          gap: 1rem;
+        }
+        .sidebar .profile h1 {
+          font-size: 1.2rem;
+        }
+        .content {
+          padding: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="profile">
+          <img src="DSC_0778.jpg" alt="Advaith" />
+          <h1>Advaith Sajeev</h1>
         </div>
-      </section>
-      <!-- Research section -->
-      <section id="research">
-        <h2>Research</h2>
-        <div class="cards">
-          <div class="card">
-            <h3>Estimating Soil Moisture from Satellite Data</h3>
-            <p>Collaborated with INRAE to predict soil moisture using remote sensing data. Implemented regression models and data preprocessing pipelines for heterogeneous sensor fusion.</p>
-          </div>
-          <div class="card">
-            <h3>Text-Prompted 4D Mesh Character Animation</h3>
-            <p>Researched a topology-agnostic method for animating 4D meshes from natural language prompts using latent graph diffusion. Achieved flexible and realistic character motions.</p>
-          </div>
-          <div class="card">
-            <h3>Label-Free Coconut Tree Counting</h3>
-            <p>Proposed a label-free algorithm for counting coconut trees in aerial imagery by integrating image processing techniques and deep learning without point annotations.</p>
-          </div>
-          <div class="card">
-            <h3>Final Year Project: Edge Self-Driving with Small LMs</h3>
-            <p>Designed an edge self-driving system combining a small language model with sensor encoders for LiDAR and camera data. Implemented way-point planning and safety modules.</p>
-          </div>
+        <nav>
+          <a href="#home">Home</a>
+          <a href="#projects">Projects</a>
+          <a href="#research">Research</a>
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills &amp; Certifications</a>
+          <a href="#contact">Contact</a>
+          <a href="#resume">Resume</a>
+        </nav>
+        <div class="socials">
+          <!-- Updated social links to reflect real accounts. Remove placeholder addresses. -->
+          <a href="mailto:advaithsajeev1244@gmail.com" title="Email">✉️</a>
+          <a href="https://github.com/Advaith-Sajeev" title="GitHub">🐙</a>
+          <a href="https://www.linkedin.com/in/advaith-sajeev/" title="LinkedIn"
+            >🔗</a
+          >
         </div>
-      </section>
-      <!-- Experience section -->
-      <section id="experience">
-        <h2>Experience</h2>
-        <div class="card">
-          <h3>Research Intern – Defence Research and Development Laboratory (DRDL/DRDO)</h3>
-          <p><strong>May 2024 – Jul 2024, Hyderabad, India</strong></p>
-          <p>Worked on object detection pipelines for defence applications. Developed custom datasets and benchmarked YOLOv11 and RT-DETR models on Nvidia Jetson Orin, optimising for both latency and accuracy.</p>
-        </div>
-      </section>
-      <!-- Education section -->
-      <section id="education">
-        <h2>Education</h2>
-        <div class="card">
-          <h3>B.Tech, Computer Science &amp; Engineering – Amrita Vishwa Vidyapeetham</h3>
-          <p><strong>2021 – Present (Kollam, India)</strong></p>
-          <p>CGPA: 8.54 (up to 6th semester). Relevant coursework: Artificial Intelligence, Deep Learning, Computer Vision.</p>
-        </div>
-        <div class="card">
-          <h3>High School – CBSE, Chinmaya Vidyalaya</h3>
-          <p><strong>2020 – 2021</strong></p>
-          <p>Score: 94.8% (Higher Secondary)</p>
-        </div>
-        <div class="card">
-          <h3>Secondary School – CBSE</h3>
-          <p><strong>2018 – 2019</strong></p>
-          <p>Score: 93.8%</p>
-        </div>
-      </section>
-      <!-- Skills and Certifications -->
-      <section id="skills">
-        <h2>Skills &amp; Certifications</h2>
-        <div class="cards">
-          <div class="card">
-            <h3>Programming &amp; ML</h3>
-            <p>Python, C++, Java, PyTorch, TensorFlow, scikit-learn</p>
+      </aside>
+      <!-- Main content -->
+      <main class="content">
+        <!-- Home / Hero section -->
+        <section id="home">
+          <h2>Hello</h2>
+          <p>
+            I'm <strong>Advaith</strong>, an
+            <strong>AI Researcher &amp; Machine Learning Engineer</strong>. I
+            enjoy creating efficient vision and generative AI systems that
+            bridge cutting-edge research and real-world impact. Currently
+            completing my B.Tech in Computer Science and Engineering at Amrita
+            Vishwa Vidyapeetham with a focus on computer vision, diffusion
+            models and edge deployment.
+          </p>
+          <p>
+            I love transforming research ideas into scalable and deployable
+            products. Explore my work below!
+          </p>
+        </section>
+        <!-- Projects section -->
+        <section id="projects">
+          <h2>Projects</h2>
+          <div class="cards">
+            <div class="card">
+              <h3>Deepfake Detection Ensemble</h3>
+              <p><strong>Date:</strong> Jan 2024 – Present</p>
+              <p>
+                Developed an ensemble of detectors with a custom dataset to
+                detect AI-generated deepfakes. Combined multiple architectures
+                via weighted fusion to improve accuracy.
+              </p>
+              <p><strong>Stack:</strong> PyTorch, TensorFlow, OpenCV</p>
+              <!-- Link to the Deepfake Detection code repository -->
+              <a
+                href="https://github.com/Advaith-Sajeev/DeepfakeDetection"
+                target="_blank"
+                >View Code</a
+              >
+            </div>
+            <div class="card">
+              <h3>DDPM Image Generation Coursework</h3>
+              <p><strong>Date:</strong> Aug 2023 – Dec 2023</p>
+              <p>
+                Explored the fundamentals of diffusion probabilistic models and
+                implemented a denoising diffusion pipeline as part of academic
+                coursework.
+              </p>
+              <p><strong>Stack:</strong> PyTorch, Python</p>
+              <!-- Coursework does not have a public repository link -->
+            </div>
+            <div class="card">
+              <h3>Adobe India Hackathon – Team Starks</h3>
+              <p><strong>Date:</strong> Apr 2024</p>
+              <p>
+                Built a compact generative AI model using Qwen2.5–0.5B INT8 for
+                summarisation with YOLOv8n for image detection and K-means
+                clustering for embedding filtering.
+              </p>
+              <p><strong>Stack:</strong> Qwen, YOLOv8, Python</p>
+              <!-- Link to the Adobe India Hackathon project code repository -->
+              <a
+                href="https://github.com/Advaith-Sajeev/TeamStarks-Adobe-India-Hackathon"
+                target="_blank"
+                >View Code</a
+              >
+            </div>
           </div>
-          <div class="card">
-            <h3>Computer Vision &amp; Graphics</h3>
-            <p>OpenCV, MediaPipe, PyTorch Geometric, Pytorch3D, CUDA</p>
+        </section>
+        <!-- Research section -->
+        <section id="research">
+          <h2>Research</h2>
+          <div class="cards">
+            <div class="card">
+              <h3>Estimating Soil Moisture from Satellite Data</h3>
+              <p>
+                Collaborated with INRAE to predict soil moisture using remote
+                sensing data. Implemented regression models and data
+                preprocessing pipelines for heterogeneous sensor fusion.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Text-Prompted 4D Mesh Character Animation</h3>
+              <p>
+                Researched a topology-agnostic method for animating 4D meshes
+                from natural language prompts using latent graph diffusion.
+                Achieved flexible and realistic character motions.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Label-Free Coconut Tree Counting</h3>
+              <p>
+                Proposed a label-free algorithm for counting coconut trees in
+                aerial imagery by integrating image processing techniques and
+                deep learning without point annotations.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Final Year Project: Edge Self-Driving with Small LMs</h3>
+              <p>
+                Designed an edge self-driving system combining a small language
+                model with sensor encoders for LiDAR and camera data.
+                Implemented way-point planning and safety modules.
+              </p>
+            </div>
           </div>
+        </section>
+        <!-- Experience section -->
+        <section id="experience">
+          <h2>Experience</h2>
           <div class="card">
-            <h3>Generative AI &amp; LLMs</h3>
-            <p>Prompting, fine-tuning, quantisation, diffusion models</p>
+            <h3>
+              Research Intern – Defence Research and Development Laboratory
+              (DRDL/DRDO)
+            </h3>
+            <p><strong>May 2024 – Jul 2024, Hyderabad, India</strong></p>
+            <p>
+              Worked on object detection pipelines for defence applications.
+              Developed custom datasets and benchmarked YOLOv11 and RT-DETR
+              models on Nvidia Jetson Orin, optimising for both latency and
+              accuracy.
+            </p>
           </div>
-          <div class="card">
-            <h3>Data &amp; Visualisation</h3>
-            <p>NumPy, Pandas, Matplotlib</p>
+        </section>
+        <!-- Skills and Certifications -->
+        <section id="skills">
+          <h2>Skills &amp; Certifications</h2>
+          <div class="cards">
+            <div class="card">
+              <h3>Programming &amp; ML</h3>
+              <p>Python, C++, Java, PyTorch, TensorFlow, scikit-learn</p>
+            </div>
+            <div class="card">
+              <h3>Computer Vision &amp; Graphics</h3>
+              <p>OpenCV, MediaPipe, PyTorch Geometric, Pytorch3D, CUDA</p>
+            </div>
+            <div class="card">
+              <h3>Generative AI &amp; LLMs</h3>
+              <p>Prompting, fine-tuning, quantisation, diffusion models</p>
+            </div>
+            <div class="card">
+              <h3>Data &amp; Visualisation</h3>
+              <p>NumPy, Pandas, Matplotlib</p>
+            </div>
+            <div class="card">
+              <h3>Certifications</h3>
+              <p>
+                DeepLearning.AI Generative Adversarial Networks Specialisation
+              </p>
+              <p>DeepLearning.AI Natural Language Processing Specialisation</p>
+            </div>
           </div>
-          <div class="card">
-            <h3>Certifications</h3>
-            <p>DeepLearning.AI Generative Adversarial Networks Specialisation</p>
-            <p>DeepLearning.AI Natural Language Processing Specialisation</p>
-          </div>
-        </div>
-      </section>
-      <!-- Contact section -->
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>You can reach me via the following channels:</p>
-        <ul>
-          <li>Email: <a href="mailto:advaithsajeev1244@gmail.com">advaithsajeev1244@gmail.com</a></li>
-          <li>LinkedIn: <a href="https://www.linkedin.com/in/advaith-sajeev/" target="_blank">advaith‑sajeev</a></li>
-          <li>GitHub: <a href="https://github.com/Advaith-Sajeev" target="_blank">Advaith‑Sajeev</a></li>
-        </ul>
-      </section>
-      <!-- Resume section -->
-      <section id="resume">
-        <h2>Resume</h2>
-        <p>For a complete overview of my experience and education, please download my resume.</p>
-        <a class="resume-link" href="Advaith_Resume (1).pdf" download>Download Resume (PDF)</a>
-        <p style="margin-top:0.5rem; font-size:0.85rem;">Last updated: 15 September 2025</p>
-      </section>
-    </main>
-  </div>
-</body>
+        </section>
+        <!-- Contact section -->
+        <section id="contact">
+          <h2>Contact</h2>
+          <p>You can reach me via the following channels:</p>
+          <ul>
+            <li>
+              Email:
+              <a href="mailto:advaithsajeev1244@gmail.com"
+                >advaithsajeev1244@gmail.com</a
+              >
+            </li>
+            <li>
+              LinkedIn:
+              <a
+                href="https://www.linkedin.com/in/advaith-sajeev/"
+                target="_blank"
+                >advaith‑sajeev</a
+              >
+            </li>
+            <li>
+              GitHub:
+              <a href="https://github.com/Advaith-Sajeev" target="_blank"
+                >Advaith‑Sajeev</a
+              >
+            </li>
+          </ul>
+        </section>
+        <!-- Resume section -->
+        <section id="resume">
+          <h2>Resume</h2>
+          <p>
+            For a complete overview of my experience and education, please
+            download my resume.
+          </p>
+          <a class="resume-link" href="Advaith_Resume (1).pdf" download
+            >Download Resume (PDF)</a
+          >
+          <p style="margin-top: 0.5rem; font-size: 0.85rem">
+            Last updated: 15 September 2025
+          </p>
+        </section>
+      </main>
+    </div>
+  </body>
 </html>
