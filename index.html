@@ -3,16 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Advaith – Portfolio</title>
+    <title>Advaith – Home</title>
     <style>
       :root {
         --bg-color: #fffdf2;
         --fg-color: #000000;
-        --accent-color: #ebaa64; /* muted orange for subtle highlights */
+        --accent-color: #ebaa64;
         --heading-font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         --body-font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
-
       html,
       body {
         margin: 0;
@@ -20,369 +19,205 @@
         background: var(--bg-color);
         color: var(--fg-color);
         font-family: var(--body-font);
-        line-height: 1.6;
       }
-
-      /* Basic layout */
-      .container {
-        display: flex;
-        min-height: 100vh;
-      }
-      .sidebar {
-        width: 280px;
-        background: var(--fg-color);
-        color: var(--bg-color);
-        display: flex;
-        flex-direction: column;
-        padding: 2rem 1.5rem;
-        /* Ensure the sidebar remains visible when scrolling by making it sticky */
-        position: sticky;
-        top: 0;
-        height: 100vh;
-      }
-      .sidebar .profile {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 2rem;
-      }
-      .profile img {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 4px solid var(--bg-color);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      }
-      .profile h1 {
-        margin-top: 1rem;
-        font-size: 1.4rem;
-        font-weight: 600;
-      }
-      nav {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-      }
-      nav a {
-        text-decoration: none;
-        color: var(--bg-color);
-        padding: 0.5rem 0.75rem;
-        border-radius: 4px;
-        transition: background 0.2s;
-      }
-      nav a:hover,
-      nav a:focus {
-        background: var(--accent-color);
-        color: var(--fg-color);
-      }
-      .sidebar .socials {
-        display: flex;
-        gap: 0.5rem;
-        margin-top: auto;
-      }
-      .sidebar .socials a {
-        color: var(--bg-color);
-        font-size: 1.2rem;
-        text-decoration: none;
-        transition: color 0.2s;
-      }
-      .sidebar .socials a:hover {
-        color: var(--accent-color);
-      }
-      /* Main content area */
-      .content {
-        flex: 1;
-        padding: 2rem;
-        overflow-y: auto;
-      }
-      section {
-        margin-bottom: 3rem;
-      }
-      h2 {
-        font-family: var(--heading-font);
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        border-left: 6px solid var(--accent-color);
-        padding-left: 0.5rem;
-      }
-      /* Cards */
-      .cards {
+      .hero {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 1rem;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        min-height: 100vh;
+        max-width: 1100px;
+        margin: 0 auto;
+        gap: 2rem;
+        padding: 2rem;
       }
-      .card {
-        background: #ffffff;
-        border: 1px solid #e0e0e0;
-        border-radius: 8px;
-        padding: 1rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      .intro h1 {
+        font-family: var(--heading-font);
+        font-size: 3rem;
+        margin: 0 0 0.5rem;
+        letter-spacing: 0.2px;
       }
-      .card h3 {
-        margin-top: 0;
-        font-size: 1.2rem;
-        margin-bottom: 0.5rem;
+      .intro p.lead {
+        font-size: 1.05rem;
+        opacity: 0.9;
+        max-width: 52ch;
       }
-      .card p {
-        margin-bottom: 0.25rem;
+      .actions {
+        margin-top: 1.25rem;
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
       }
-      .card a {
-        color: var(--accent-color);
-        text-decoration: none;
-        font-weight: 600;
-      }
-      .resume-link {
+      .btn {
         display: inline-block;
-        margin-top: 1rem;
-        padding: 0.5rem 1rem;
+        padding: 0.7rem 1rem;
+        border-radius: 8px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+      .btn.primary {
         background: var(--accent-color);
         color: var(--fg-color);
-        border-radius: 4px;
-        text-decoration: none;
-        font-weight: 600;
       }
-      .resume-link:hover {
-        background: var(--fg-color);
-        color: var(--bg-color);
+      .btn.secondary {
+        background: transparent;
+        color: var(--fg-color);
+        border: 2px solid var(--fg-color);
       }
-      @media (max-width: 768px) {
-        .container {
-          flex-direction: column;
+      .btn.social {
+        background: #fff;
+        color: #222;
+        border: 2px solid #eee;
+        font-size: 1.05rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5em;
+        transition: box-shadow 0.2s;
+      }
+      .btn.social:hover {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border-color: var(--accent-color);
+        color: var(--accent-color);
+      }
+      .photo-wrap {
+        display: flex;
+        justify-content: center;
+      }
+      .photo {
+        width: min(420px, 80%);
+        aspect-ratio: 1/1;
+        border-radius: 16px;
+        object-fit: cover;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        border: 6px solid #fff;
+      }
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+          text-align: center;
         }
-        .sidebar {
-          width: 100%;
-          flex-direction: row;
-          align-items: center;
-          gap: 1rem;
+        .intro h1 {
+          font-size: 2.2rem;
         }
-        nav {
-          flex-direction: row;
-          flex: 1;
-          gap: 1rem;
+        .photo {
+          width: min(360px, 90%);
         }
-        .sidebar .profile h1 {
-          font-size: 1.2rem;
-        }
-        .content {
-          padding: 1rem;
-        }
+      }
+      .bg-squiggle {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        pointer-events: none;
+        overflow: hidden;
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <!-- Sidebar -->
-      <aside class="sidebar">
-        <div class="profile">
-          <img src="DSC_0778.jpg" alt="Advaith" />
-          <h1>Advaith Sajeev</h1>
-        </div>
-        <nav>
-          <a href="#home">Home</a>
-          <a href="#research">Research</a>
-          <a href="#projects">Projects</a>
-          <a href="#experience">Experience</a>
-          <a href="#skills">Skills</a>
-          <a href="#contact">Contact</a>
-          <a href="#resume">Resume</a>
-        </nav>
-        <div class="socials">
-          <!-- Updated social links to reflect real accounts. Remove placeholder addresses. -->
-          <a href="mailto:advaithsajeev1244@gmail.com" title="Email">✉️</a>
-          <a href="https://github.com/Advaith-Sajeev" title="GitHub">🐙</a>
-          <a href="https://www.linkedin.com/in/advaith-sajeev/" title="LinkedIn"
-            >🔗</a
-          >
-        </div>
-      </aside>
-      <!-- Main content -->
-      <main class="content">
-        <!-- Home / Hero section -->
-        <section id="home">
-          <h2>Hello</h2>
-          <p>
-            I'm <strong>Advaith</strong>, an
-            <strong>AI Researcher &amp; Machine Learning Engineer</strong>. I
-            enjoy creating efficient vision and generative AI systems that
-            bridge cutting-edge research and real-world impact. Currently
-            completing my B.Tech in Computer Science and Engineering at Amrita
-            Vishwa Vidyapeetham with a focus on computer vision, diffusion
-            models and edge deployment.
-          </p>
-          <p>
-            I love transforming research ideas into scalable and deployable
-            products. Explore my work below!
-          </p>
-        </section>
-        <!-- Projects section -->
-        <section id="projects">
-          <h2>Projects</h2>
-          <div class="cards">
-            <div class="card">
-              <h3>Deepfake Detection Ensemble</h3>
-              <p><strong>Date:</strong> Jan 2024 – Present</p>
-              <p>
-                Developed an ensemble of detectors with a custom dataset to
-                detect AI-generated deepfakes. Combined multiple architectures
-                via weighted fusion to improve accuracy.
-              </p>
-              <p><strong>Stack:</strong> PyTorch, TensorFlow, OpenCV</p>
-              <!-- Link to the Deepfake Detection code repository -->
-              <a
-                href="https://github.com/Advaith-Sajeev/DeepfakeDetection"
-                target="_blank"
-                >View Code</a
-              >
-            </div>
-            <div class="card">
-              <h3>DDPM Image Generation Coursework</h3>
-              <p><strong>Date:</strong> Aug 2023 – Dec 2023</p>
-              <p>
-                Explored the fundamentals of diffusion probabilistic models and
-                implemented a denoising diffusion pipeline as part of academic
-                coursework.
-              </p>
-              <p><strong>Stack:</strong> PyTorch, Python</p>
-              <!-- Coursework does not have a public repository link -->
-            </div>
-            <div class="card">
-              <h3>Adobe India Hackathon – Team Starks</h3>
-              <p><strong>Date:</strong> Apr 2024</p>
-              <p>
-                Built a compact generative AI model using Qwen2.5–0.5B INT8 for
-                summarisation with YOLOv8n for image detection and K-means
-                clustering for embedding filtering.
-              </p>
-              <p><strong>Stack:</strong> Qwen, YOLOv8, Python</p>
-              <!-- Link to the Adobe India Hackathon project code repository -->
-              <a
-                href="https://github.com/Advaith-Sajeev/TeamStarks-Adobe-India-Hackathon"
-                target="_blank"
-                >View Code</a
-              >
-            </div>
-          </div>
-        </section>
-        <!-- Research section -->
-        <section id="research">
-          <h2>Research</h2>
-          <div class="cards">
-            <div class="card">
-              <h3>Estimating Soil Moisture from Satellite Data</h3>
-              <p>
-                Collaborated with INRAE to predict soil moisture using remote
-                sensing data. Implemented regression models and data
-                preprocessing pipelines for heterogeneous sensor fusion.
-              </p>
-            </div>
-            <div class="card">
-              <h3>Text-Prompted 4D Mesh Character Animation</h3>
-              <p>
-                Researched a topology-agnostic method for animating 4D meshes
-                from natural language prompts using latent graph diffusion.
-                Achieved flexible and realistic character motions.
-              </p>
-            </div>
-            <div class="card">
-              <h3>Label-Free Coconut Tree Counting</h3>
-              <p>
-                Proposed a label-free algorithm for counting coconut trees in
-                aerial imagery by integrating image processing techniques and
-                deep learning without point annotations.
-              </p>
-            </div>
-            <div class="card">
-              <h3>Final Year Project: Edge Self-Driving with Small LMs</h3>
-              <p>
-                Designed an edge self-driving system combining a small language
-                model with sensor encoders for LiDAR and camera data.
-                Implemented way-point planning and safety modules.
-              </p>
-            </div>
-          </div>
-        </section>
-        <!-- Experience section -->
-        <section id="experience">
-          <h2>Experience</h2>
-          <div class="card">
-            <h3>
-              Research Intern – Defence Research and Development Laboratory
-              (DRDL/DRDO)
-            </h3>
-            <p><strong>May 2024 – Jul 2024, Hyderabad, India</strong></p>
-            <p>
-              Worked on object detection pipelines for defence applications.
-              Developed custom datasets and benchmarked YOLOv11 and RT-DETR
-              models on Nvidia Jetson Orin, optimising for both latency and
-              accuracy.
-            </p>
-          </div>
-        </section>
-        <!-- Skills section -->
-        <section id="skills">
-          <h2>Skills</h2>
-          <div class="cards">
-            <div class="card">
-              <h3>Programming &amp; ML</h3>
-              <p>Python, C++, Java, PyTorch, TensorFlow, scikit-learn</p>
-            </div>
-            <div class="card">
-              <h3>Computer Vision &amp; Graphics</h3>
-              <p>OpenCV, MediaPipe, PyTorch Geometric, Pytorch3D, CUDA</p>
-            </div>
-            <div class="card">
-              <h3>Generative AI &amp; LLMs</h3>
-              <p>Prompting, fine-tuning, quantisation, diffusion models</p>
-            </div>
-            <div class="card">
-              <h3>Data &amp; Visualisation</h3>
-              <p>NumPy, Pandas, Matplotlib</p>
-            </div>
-          </div>
-        </section>
-        <!-- Contact section -->
-        <section id="contact">
-          <h2>Contact</h2>
-          <p>You can reach me via the following channels:</p>
-          <ul>
-            <li>
-              Email:
-              <a href="mailto:advaithsajeev1244@gmail.com"
-                >advaithsajeev1244@gmail.com</a
-              >
-            </li>
-            <li>
-              LinkedIn:
-              <a
-                href="https://www.linkedin.com/in/advaith-sajeev/"
-                target="_blank"
-                >advaith‑sajeev</a
-              >
-            </li>
-            <li>
-              GitHub:
-              <a href="https://github.com/Advaith-Sajeev" target="_blank"
-                >Advaith‑Sajeev</a
-              >
-            </li>
-          </ul>
-        </section>
-        <!-- Resume section -->
-        <section id="resume">
-          <h2>Resume</h2>
-          <p>
-            For a complete overview of my experience, please download my resume.
-          </p>
-          <a class="resume-link" href="Advaith_Resume (1).pdf" download
-            >Download Resume (PDF)</a
-          >
-          <p style="margin-top: 0.5rem; font-size: 0.85rem">
-            Last updated: 15 September 2025
-          </p>
-        </section>
-      </main>
+    <div class="bg-squiggle">
+      <svg
+        width="100%"
+        height="100%"
+        viewBox="0 0 1440 800"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        style="position: absolute; top: 0; left: 0; z-index: -1"
+      >
+        <path
+          d="M0,400 Q360,200 720,400 T1440,400"
+          stroke="#ebaa64"
+          stroke-width="8"
+          fill="none"
+        >
+          <animate
+            attributeName="d"
+            dur="6s"
+            repeatCount="indefinite"
+            values="M0,400 Q360,200 720,400 T1440,400; M0,420 Q360,300 720,420 T1440,420; M0,400 Q360,200 720,400 T1440,400"
+          />
+        </path>
+      </svg>
     </div>
+    <main class="hero">
+      <div class="intro">
+        <h1>Hello, I’m Advaith</h1>
+        <p class="lead">
+          AI Researcher and Machine Learning Engineer focused on computer
+          vision, diffusion models, and efficient deployment on the edge. I love
+          turning research into real, usable products.
+        </p>
+        <div
+          class="actions"
+          style="flex-direction: column; align-items: flex-start; gap: 1.1rem"
+        >
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap">
+            <a class="btn primary" href="work.html">See my work →</a>
+            <a class="btn secondary" href="Advaith_Resume (1).pdf" download
+              >Download resume</a
+            >
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 0.75rem;
+              margin-top: 1.2rem;
+            "
+          >
+            <a
+              class="btn social"
+              href="https://github.com/Advaith-Sajeev"
+              target="_blank"
+              rel="noopener"
+              title="GitHub"
+              style="justify-content: flex-start"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                style="vertical-align: middle; margin-right: 0.5em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C6.477 2 2 6.484 2 12.012c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.089 2.91.833.091-.646.35-1.09.636-1.342-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.254-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.338 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.396.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.847-2.338 4.695-4.566 4.944.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.579.688.481C19.138 20.188 22 16.437 22 12.012 22 6.484 17.523 2 12 2Z"
+                  fill="#222"
+                />
+              </svg>
+              GitHub
+            </a>
+            <a
+              class="btn social"
+              href="https://www.linkedin.com/in/advaith-sajeev/"
+              target="_blank"
+              rel="noopener"
+              title="LinkedIn"
+              style="justify-content: flex-start"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                style="vertical-align: middle; margin-right: 0.5em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="24" height="24" rx="4" fill="#0077B5" />
+                <path
+                  d="M7.75 8.5C8.44 8.5 9 7.94 9 7.25C9 6.56 8.44 6 7.75 6C7.06 6 6.5 6.56 6.5 7.25C6.5 7.94 7.06 8.5 7.75 8.5ZM8.5 9.5H7V18H8.5V9.5ZM10.5 9.5H12V10.25C12.28 9.86 12.81 9.5 13.5 9.5C15.01 9.5 15.5 10.44 15.5 12.03V18H14V12.5C14 11.67 13.83 11.25 13.25 11.25C12.67 11.25 12.5 11.67 12.5 12.5V18H11V9.5H10.5Z"
+                  fill="#fff"
+                />
+              </svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="photo-wrap">
+        <img class="photo" src="DSC_0778.jpg" alt="Advaith photo" />
+      </div>
+    </main>
   </body>
 </html>

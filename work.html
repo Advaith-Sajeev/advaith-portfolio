@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advaith – Work</title>
+    <style>
+      :root {
+        --bg-color: #fffdf2;
+        --fg-color: #000000;
+        --accent-color: #ebaa64;
+        --heading-font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        --body-font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg-color);
+        color: var(--fg-color);
+        font-family: var(--body-font);
+        line-height: 1.6;
+      }
+
+      /* Layout */
+      .layout {
+        display: flex;
+        min-height: 100vh;
+      }
+
+      /* Trackbar (left sidebar) */
+      .trackbar {
+        width: 280px;
+        background: #000;
+        color: #fff;
+        padding: 1.25rem 1rem;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow: auto;
+      }
+      .trackbar .brand {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+      }
+      .trackbar .avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid #fff;
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+      }
+      .trackbar .name {
+        font-weight: 800;
+        font-size: 1.25rem;
+        letter-spacing: 0.4px;
+      }
+      .trackbar nav a {
+        display: block;
+        padding: 0.6rem 0.25rem;
+        text-decoration: none;
+        color: #fff;
+        opacity: 0.9;
+        transition: color 0.15s ease, opacity 0.15s ease;
+      }
+      .trackbar nav a:hover {
+        opacity: 1;
+        color: var(--accent-color);
+      }
+      .trackbar nav a.active {
+        color: var(--accent-color);
+        opacity: 1;
+      }
+
+      /* Content area */
+      .main {
+        flex: 1;
+        min-width: 0;
+        /* keep things fluid */
+      }
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 1.5rem;
+      }
+
+      h1 {
+        font-family: var(--heading-font);
+        margin: 0;
+        font-size: 1.1rem;
+        letter-spacing: 0.4px;
+        opacity: 0.85;
+      }
+      h2 {
+        font-family: var(--heading-font);
+        font-size: 2rem;
+        margin: 2rem 0 1rem;
+        border-left: 6px solid var(--accent-color);
+        padding-left: 0.5rem;
+        scroll-margin-top: 24px; /* anchor offset */
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1rem;
+      }
+      .card {
+        background: #fff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 1rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      }
+      .card h3 {
+        margin: 0 0 0.5rem;
+        font-size: 1.2rem;
+      }
+      .card a {
+        color: var(--accent-color);
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 0.15rem 0.5rem;
+        border: 1px solid #e0e0e0;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        margin: 0.1rem 0.2rem 0 0;
+      }
+      footer {
+        margin: 3rem 0 1rem;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #444;
+      }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        .layout {
+          flex-direction: column;
+        }
+        .trackbar {
+          position: static;
+          height: auto;
+          width: auto;
+          padding: 0.75rem 1rem 1rem;
+        }
+        .trackbar .brand {
+          flex-direction: row;
+          align-items: center;
+          gap: 0.75rem;
+        }
+        .trackbar .avatar {
+          width: 56px;
+          height: 56px;
+          border-width: 3px;
+        }
+        .trackbar nav {
+          display: flex;
+          gap: 1rem;
+          flex-wrap: wrap;
+          margin-top: 0.5rem;
+        }
+        .trackbar nav a {
+          padding: 0.4rem 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="trackbar">
+        <div class="brand">
+          <img src="DSC_0778.jpg" alt="Advaith" class="avatar" />
+          <div class="name">Advaith</div>
+        </div>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="#projects">Projects</a>
+          <a href="#research">Research</a>
+          <a href="#experience">Experience</a>
+          <a href="Advaith_Resume (1).pdf" target="_blank" rel="noopener"
+            >Resume</a
+          >
+        </nav>
+      </aside>
+
+      <main class="main">
+        <div class="container">
+          <section id="projects">
+            <h2>Projects</h2>
+            <div class="cards">
+              <div class="card">
+                <h3>Deepfake Detection Ensemble</h3>
+                <p><strong>Date:</strong> Jan 2024 – Present</p>
+                <p>
+                  Developed an ensemble of detectors with a custom dataset to
+                  detect AI-generated deepfakes. Combined multiple architectures
+                  via weighted fusion to improve accuracy. Led data collection,
+                  preprocessing, and model evaluation. Achieved significant
+                  improvement in detection accuracy over baseline models.
+                </p>
+                <p><strong>Stack:</strong> PyTorch, TensorFlow, OpenCV</p>
+                <a
+                  href="https://github.com/Advaith-Sajeev/DeepfakeDetection"
+                  target="_blank"
+                  >View Code</a
+                >
+              </div>
+              <div class="card">
+                <h3>DDPM Image Generation Coursework</h3>
+                <p><strong>Date:</strong> Aug 2023 – Dec 2023</p>
+                <p>
+                  Explored the fundamentals of diffusion probabilistic models
+                  and implemented a denoising diffusion pipeline as part of
+                  academic coursework. Investigated model architectures,
+                  training strategies, and evaluation metrics for generative
+                  image synthesis.
+                </p>
+                <p><strong>Stack:</strong> PyTorch, Python</p>
+              </div>
+              <div class="card">
+                <h3>Adobe India Hackathon – Team Starks</h3>
+                <p><strong>Date:</strong> Apr 2024</p>
+                <p>
+                  Built a compact generative AI model using Qwen2.5–0.5B INT8
+                  for summarisation with YOLOv8n for image detection and K-means
+                  clustering for embedding filtering. Designed and implemented
+                  the full pipeline, optimized for speed and accuracy in
+                  real-world scenarios.
+                </p>
+                <p><strong>Stack:</strong> Qwen, YOLOv8, Python</p>
+                <a
+                  href="https://github.com/Advaith-Sajeev/TeamStarks-Adobe-India-Hackathon"
+                  target="_blank"
+                  >View Code</a
+                >
+              </div>
+            </div>
+          </section>
+
+          <section id="research">
+            <h2>Research</h2>
+            <div class="cards">
+              <div class="card">
+                <h3>Estimating Soil Moisture from Satellite Data</h3>
+                <p><strong>Date:</strong> May 2023 – Jul 2023</p>
+                <p>
+                  Collaborated with INRAE to predict soil moisture using remote
+                  sensing data. Implemented regression models and data
+                  preprocessing pipelines for heterogeneous sensor fusion.
+                  Delivered actionable insights for agricultural planning.
+                </p>
+                <p>
+                  <strong>Stack:</strong> Python, Scikit-learn, Remote Sensing
+                </p>
+              </div>
+              <div class="card">
+                <h3>Text-Prompted 4D Mesh Character Animation</h3>
+                <p><strong>Date:</strong> Jan 2023 – May 2023</p>
+                <p>
+                  Researched a topology-agnostic method for animating 4D meshes
+                  from natural language prompts using latent graph diffusion.
+                  Achieved flexible and realistic character motions,
+                  contributing to advancements in computer graphics and
+                  animation.
+                </p>
+                <p>
+                  <strong>Stack:</strong> Python, Deep Learning, Computer
+                  Graphics
+                </p>
+              </div>
+              <div class="card">
+                <h3>Label-Free Coconut Tree Counting</h3>
+                <p><strong>Date:</strong> Aug 2022 – Dec 2022</p>
+                <p>
+                  Proposed a label-free algorithm for counting coconut trees in
+                  aerial imagery by integrating image processing techniques and
+                  deep learning without point annotations. Enabled scalable
+                  agricultural monitoring with minimal manual labeling.
+                </p>
+                <p><strong>Stack:</strong> Python, OpenCV, Deep Learning</p>
+              </div>
+              <div class="card">
+                <h3>Final Year Project: Edge Self-Driving with Small LMs</h3>
+                <p><strong>Date:</strong> Jan 2024 – May 2024</p>
+                <p>
+                  Designed an edge self-driving system combining a small
+                  language model with sensor encoders for LiDAR and camera data.
+                  Implemented waypoint planning and safety modules,
+                  demonstrating robust performance on embedded hardware.
+                </p>
+                <p>
+                  <strong>Stack:</strong> Python, Embedded Systems, Robotics
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section id="experience">
+            <h2>Experience</h2>
+            <div class="card">
+              <h3>Research Intern – DRDL/DRDO</h3>
+              <p><strong>May 2024 – Jul 2024, Hyderabad, India</strong></p>
+              <p>
+                Worked on object detection pipelines for defence applications.
+                Developed custom datasets and benchmarked YOLOv11 and RT-DETR
+                models on Nvidia Jetson Orin, optimising for both latency and
+                accuracy.
+              </p>
+            </div>
+          </section>
+
+          <footer></footer>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      // Scrollspy to highlight the active section link and enable smooth behavior
+      (function () {
+        const navLinks = Array.from(
+          document.querySelectorAll(".trackbar nav a")
+        );
+        const sectionLinks = navLinks.filter((a) =>
+          (a.getAttribute("href") || "").startsWith("#")
+        );
+        const sections = sectionLinks
+          .map((a) => document.querySelector(a.getAttribute("href")))
+          .filter(Boolean);
+
+        if (sections.length === 0) return;
+
+        const linkById = Object.fromEntries(
+          sectionLinks.map((a) => [a.getAttribute("href").slice(1), a])
+        );
+
+        // Optional: handle click to close mobile nav focus
+        sectionLinks.forEach((a) => {
+          a.addEventListener("click", () => {
+            // Remove active from all, add to clicked for immediate feedback
+            sectionLinks.forEach((l) => l.classList.remove("active"));
+            a.classList.add("active");
+          });
+        });
+
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              const id = entry.target.id;
+              const link = linkById[id];
+              if (!link) return;
+              if (entry.isIntersecting) {
+                sectionLinks.forEach((l) => l.classList.remove("active"));
+                link.classList.add("active");
+              }
+            });
+          },
+          { root: null, rootMargin: "0px", threshold: 0.5 }
+        );
+
+        sections.forEach((sec) => io.observe(sec));
+      })();
+    </script>
+  </body>
+</html>
